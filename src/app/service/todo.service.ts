@@ -26,7 +26,7 @@ export class Todoservice {
   );
   }
   createTodo(todo: Todo) {
-   this.http.post<Todo>('http://localhost:8080/Todo_180913/api/todos',todo.description)
+   this.http.post<Todo>('http://localhost:8080/Todo_180913/api/todos',todo)
   .subscribe(_ =>  {    this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos')})
   }
 }
