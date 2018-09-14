@@ -1,0 +1,13 @@
+<div id="addTodo">
+    <label class="todo-label">Ajoutez une tache :</label>
+    <input class="todo-input" />
+</div>
+
+
+<div id="listTodo" *ngFor="let todo of todoService.todos | async">
+    <div class="todo">
+        <span class="todo-id">{{todo.id_todo}}</span>
+        <span class="todo-desc">{{todo.description}}</span>
+        <div class="todo-icon"><i class="fas fa-trash"></i></div>
+    </div>
+</div>

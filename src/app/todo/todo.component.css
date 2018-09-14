@@ -1,0 +1,33 @@
+#listTodo{
+    border: 2px solid black;
+    margin: 1em auto;
+    justify-content: center;
+    padding: 1.5em;
+    display: flex;
+    width: 80%;
+}
+#addTodo{
+    text-align: center;
+    margin: 1.5em auto;
+    font-size:1.5em;
+}
+.todo{
+    width: 100%;
+}
+.todo-label{
+    margin-right: 1em;
+}
+.todo-id{
+    margin-right:1em;
+    font-size: 1.7em;
+    float: left;
+}
+.todo-desc{
+    float: left;
+    font-size: 1.5em;
+}
+.todo-icon{
+    float: right;
+    font-size: 1.4em;
+    margin-right: 1em;
+}

@@ -13,10 +13,10 @@ export class Todoservice {
    }
 
    getTodos(){
-     this.todos = this.http.get<Todo[]>('http://localhost:8080/todos');
+     this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos');
    }
    getTodo(id): Observable<Todo> {
     return this.http
-      .get<Todo>("http://localhost:8080/Todos/" + id);
+      .get<Todo>("http://localhost:8080/api/Todos/" + id);
   }
 }
