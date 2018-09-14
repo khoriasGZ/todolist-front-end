@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class Todoservice {
   todos : Observable<Todo[]>
   
+  
   constructor(private http : HttpClient) {
    }
 
@@ -18,5 +19,14 @@ export class Todoservice {
    getTodo(id): Observable<Todo> {
     return this.http
       .get<Todo>("http://localhost:8080/api/Todos/" + id);
+  }
+  deleteTodo(id) {
+    this.http.delete<Todo[]>('http://localhost:8080/Todo_180913/api/todos/'+id)
+    .subscribe(_ =>  {    this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos')}
+  );
+  }
+  createTodo(todo: Todo) {
+   this.http.post<Todo>('http://localhost:8080/Todo_180913/api/todos',todo.description)
+  .subscribe(_ =>  {    this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos')})
   }
 }

@@ -1,13 +1,16 @@
 <div id="addTodo">
-    <label class="todo-label">Ajoutez une tache :</label>
-    <input class="todo-input" />
+    <form  #heroForm="ngForm">
+        <label class="todo-label">Ajoutez une tache :</label>
+        <input class="todo-input" name="description" [(ngModel)]="todo.description" />
+        <button class="todo-button" (click)="create(todo)">ok</button>
+    </form>
 </div>
 
 
 <div id="listTodo" *ngFor="let todo of todoService.todos | async">
-    <div class="todo">
+    <div class="todo" (click)="delete(todo.id_todo)">
         <span class="todo-id">{{todo.id_todo}}</span>
         <span class="todo-desc">{{todo.description}}</span>
-        <div class="todo-icon"><i class="fas fa-trash"></i></div>
+        <div class="todo-icon"><i class="fas fa-trash" (click)="delete(todo.id_todo)"></i></div>
     </div>
 </div>
