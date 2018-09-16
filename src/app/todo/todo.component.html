@@ -1,16 +1,15 @@
 <div id="addTodo">
-    <form  #heroForm="ngForm">
-        <label class="todo-label">Ajoutez une tache :</label>
-        <input class="todo-input" name="description" [(ngModel)]="todo.description" />
+    <form #heroForm="ngForm">
+        <input class="todo-input" placeholder="Ajouter une tâche" name="description" [(ngModel)]="todo.description" />
         <button class="todo-button" (click)="create(todo)">ok</button>
     </form>
 </div>
 
 
 <div id="listTodo" *ngFor="let todo of todoService.todos | async">
-    <div class="todo" (click)="delete(todo.id_todo)">
-        <span class="todo-id">{{todo.id_todo}}</span>
-        <span class="todo-desc">{{todo.description}}</span>
+    <div class="todo">
+        <input type="checkbox" class="checkbox">
+        <span class="todo-id">{{todo.id_todo}} {{todo.description}}</span>
         <div class="todo-icon"><i class="fas fa-trash" (click)="delete(todo.id_todo)"></i></div>
     </div>
 </div>

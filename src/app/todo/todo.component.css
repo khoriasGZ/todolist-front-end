@@ -1,33 +1,97 @@
 #listTodo{
-    border: 2px solid black;
-    margin: 1em auto;
-    justify-content: center;
-    padding: 1.5em;
+    background-color: #5c96b3;
+    border-radius: 25px;
+    box-sizing: border-box;
     display: flex;
+    justify-content: center;
+    margin: 1em auto;
+    padding: 1.5em;
     width: 80%;
 }
+#listTodo:hover{
+    border: 2px solid black;
+}
 #addTodo{
-    text-align: center;
+    font-size:1.6em;
     margin: 1.5em auto;
-    font-size:1.5em;
+    text-align: center;
 }
 .todo{
     width: 100%;
 }
-.todo-label{
+.todo-input{
+    border-color: #607D8B;
+    border-radius: 45px;
+    height: 3em;
     margin-right: 1em;
+    text-align: center;
+    width: 40%;
+}
+.todo-button{
+    border-color: #607D8B;
+    font-family: 'Permanent Marker', cursive;
+    height: 3em;
+    text-align: center;
+    width: 3em;
 }
 .todo-id{
-    margin-right:1em;
-    font-size: 1.7em;
     float: left;
+    font-size: 1.7em;
+    margin-right:1em;
 }
 .todo-desc{
     float: left;
     font-size: 1.5em;
 }
+@keyframes strike {
+    from { text-decoration-color: transparent; }
+    to { text-decoration-color: auto; }
+    }
+.checkbox[type=checkbox]:checked + span{
+    color:rgb(0, 0, 0);
+    text-decoration: line-through;
+    animation: strike 2s linear;
+  }
+.checkbox {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    margin: 0.4em 1em;
+  }
+  .checkbox:after {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid black;
+  }
+  .checkbox:checked:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: red;
+    border-top-style: none;
+    border-right-style: none;
+  }
+  .checkbox:before {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: #5c96b3;
+    cursor: pointer;
+  }
 .todo-icon{
     float: right;
     font-size: 1.4em;
-    margin-right: 1em;
 }
