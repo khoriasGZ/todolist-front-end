@@ -95,3 +95,6 @@
     float: right;
     font-size: 1.4em;
 }
+i {
+    cursor:pointer;
+}

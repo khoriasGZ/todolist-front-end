@@ -6,10 +6,10 @@
 </div>
 
 
-<div id="listTodo" *ngFor="let todo of todoService.todos | async">
+<div id="listTodo" *ngFor="let todo of todoService.todos">
     <div class="todo">
         <input type="checkbox" class="checkbox">
-        <span class="todo-id">{{todo.id_todo}} {{todo.description}}</span>
+        <span class="todo-id">{{todo.description}}</span>
         <div class="todo-icon"><i class="fas fa-trash" (click)="delete(todo.id_todo)"></i></div>
     </div>
 </div>

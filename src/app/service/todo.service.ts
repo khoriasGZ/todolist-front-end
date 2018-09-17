@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class Todoservice {
-  todos : Observable<Todo[]>
-  
+  todos : Todo[]
   
   constructor(private http : HttpClient) {
    }
 
    getTodos(){
-     this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos');
+    this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos').subscribe(data =>  {this.todos = data.sort((a:any,b:any) => a.id_todo - b.id_todo)} );
    }
    getTodo(id): Observable<Todo> {
     return this.http
@@ -22,11 +21,10 @@ export class Todoservice {
   }
   deleteTodo(id) {
     this.http.delete<Todo[]>('http://localhost:8080/Todo_180913/api/todos/'+id)
-    .subscribe(_ =>  {    this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos')}
+    .subscribe(_ =>  {   this.getTodos() }
   );
   }
   createTodo(todo: Todo) {
    this.http.post<Todo>('http://localhost:8080/Todo_180913/api/todos',todo)
-  .subscribe(_ =>  {    this.todos = this.http.get<Todo[]>('http://localhost:8080/Todo_180913/api/todos')})
-  }
+   .subscribe(_ =>  {   this.getTodos() })  }
 }
